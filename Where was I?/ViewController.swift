@@ -20,6 +20,23 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
         DataStore().storeDatePoin(lanitude: String(lat), longitude: String(long))
         getAnotation()
+        //setCoordinate()
+    }
+    
+    func setCoordinate() {
+        // Set initial location in Honolulu
+        let locLat = CLLocationDegrees(21.282778)
+        let locLong = CLLocationDegrees(-157.829444)
+        let initialLocation = CLLocationCoordinate2D(latitude: locLat, longitude: locLong)
+        let disLat = CLLocationDistance(300)
+        let disLong = CLLocationDistance(300)
+        let coor = MKCoordinateRegion(center: initialLocation, latitudinalMeters: disLat, longitudinalMeters: disLong)
+        
+        mapView.setRegion(coor, animated: true)
+        
+        
+        
+
     }
     
     @IBOutlet weak var mapView: MKMapView!
@@ -27,6 +44,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
         
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
