@@ -24,21 +24,64 @@
             </objects>
             <point key="canvasLocation" x="-469" y="230"/>
         </scene>
-        <!--Item 1-->
+        <!--Quick share-->
+        <scene sceneID="dum-Xg-RfL">
+            <objects>
+                <navigationController id="C94-Me-cTQ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Quick share" image="square.and.arrow.up.fill" catalog="system" id="DTO-kd-sdg"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="iUK-mc-vGq">
+                        <rect key="frame" x="0.0" y="44" width="428" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="UF5-QF-hUE" kind="relationship" relationship="rootViewController" id="XSU-Vk-161"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S2w-XJ-xlJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-470" y="-443"/>
+        </scene>
+        <!--Quick Share-->
         <scene sceneID="oyY-Od-x7F">
             <objects>
-                <viewController id="UF5-QF-hUE" sceneMemberID="viewController">
+                <viewController id="UF5-QF-hUE" customClass="QuickShareViewController" customModule="Where_was_I_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="I0E-sQ-Aw0">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="B5J-lh-aTH">
+                                <rect key="frame" x="0.0" y="88" width="428" height="755"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableViewCell" id="cJw-bz-EBz">
+                                        <rect key="frame" x="0.0" y="44.666666030883789" width="428" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cJw-bz-EBz" id="KzM-zr-xzw">
+                                            <rect key="frame" x="0.0" y="0.0" width="428" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="nWV-6z-lfD"/>
                         <color key="backgroundColor" systemColor="systemYellowColor"/>
+                        <constraints>
+                            <constraint firstItem="nWV-6z-lfD" firstAttribute="bottom" secondItem="B5J-lh-aTH" secondAttribute="bottom" id="BJJ-Ry-Mtp"/>
+                            <constraint firstItem="nWV-6z-lfD" firstAttribute="trailing" secondItem="B5J-lh-aTH" secondAttribute="trailing" id="Bj1-QH-AfJ"/>
+                            <constraint firstItem="B5J-lh-aTH" firstAttribute="leading" secondItem="nWV-6z-lfD" secondAttribute="leading" id="GgC-xG-qL6"/>
+                            <constraint firstItem="B5J-lh-aTH" firstAttribute="top" secondItem="nWV-6z-lfD" secondAttribute="top" id="LXh-ac-ryH"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="TIj-Ui-CKT"/>
+                    <tabBarItem key="tabBarItem" title="Quick share" image="square.and.arrow.up.fill" catalog="system" id="TIj-Ui-CKT"/>
+                    <navigationItem key="navigationItem" title="Quick Share" id="nF2-bq-aec"/>
+                    <connections>
+                        <outlet property="tableView" destination="B5J-lh-aTH" id="TPR-Xb-dGk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hPM-xR-vSF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-470" y="-375"/>
+            <point key="canvasLocation" x="209" y="-443"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="h3x-wS-SZ7">
@@ -50,9 +93,9 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="UF5-QF-hUE" kind="relationship" relationship="viewControllers" id="Bl7-i8-uEl"/>
                         <segue destination="KVh-6H-6wi" kind="relationship" relationship="viewControllers" id="rKM-xd-dlr"/>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="Gvx-tJ-aFv"/>
+                        <segue destination="C94-Me-cTQ" kind="relationship" relationship="viewControllers" id="47j-ku-4NL"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ktM-5d-rsS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -74,6 +117,11 @@
                                 <rect key="frame" x="0.0" y="55" width="428" height="44"/>
                                 <items>
                                     <navigationItem title="Where was I?" id="fCx-ZI-BwU">
+                                        <barButtonItem key="leftBarButtonItem" image="pencil.tip" catalog="system" id="Lem-3X-TEB">
+                                            <connections>
+                                                <action selector="markButtonClick:" destination="BYZ-38-t0r" id="rc1-4q-N1f"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="MEc-km-9zh">
                                             <connections>
                                                 <action selector="saveButtonClick:" destination="BYZ-38-t0r" id="1cg-sy-fI9"/>
@@ -88,17 +136,26 @@
                                     <constraint firstAttribute="width" constant="165" id="PSh-hU-WH2"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="yes" keyboardType="numbersAndPunctuation" textContentType="flight-number"/>
+                                <connections>
+                                    <action selector="latitudeTextBox:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="HMV-Kv-TWE"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ot0-4H-cmG">
                                 <rect key="frame" x="193" y="113" width="165" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="longitudeTextBox:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="bG2-5y-ehA"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A81-4O-Hew">
                                 <rect key="frame" x="378" y="115" width="43" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Go"/>
+                                <connections>
+                                    <action selector="goButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zq8-um-dbS"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -124,6 +181,8 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="paperplane.fill" catalog="system" id="IMv-9F-7Gc"/>
                     <connections>
+                        <outlet property="latTextBox" destination="Ot0-4H-cmG" id="e6Z-nd-QYX"/>
+                        <outlet property="longTextBox" destination="WrK-wC-Dt9" id="2RJ-1r-18D"/>
                         <outlet property="mapView" destination="4uo-Oh-Tnv" id="HIP-5l-a49"/>
                     </connections>
                 </viewController>
@@ -134,6 +193,8 @@
     </scenes>
     <resources>
         <image name="paperplane.fill" catalog="system" width="128" height="118"/>
+        <image name="pencil.tip" catalog="system" width="99" height="128"/>
+        <image name="square.and.arrow.up.fill" catalog="system" width="115" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
