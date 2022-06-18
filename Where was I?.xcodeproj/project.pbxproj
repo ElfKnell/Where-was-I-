@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		C62A0620285AA990006552ED /* QuickShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62A061F285AA990006552ED /* QuickShareViewController.swift */; };
+		C6A63828285D24B900789F04 /* FotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A63827285D24B900789F04 /* FotoTableViewCell.swift */; };
+		C6A6382A285D35E000789F04 /* ShowImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A63829285D35E000789F04 /* ShowImageViewController.swift */; };
+		C6A6382C285D392500789F04 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6A6382B285D392500789F04 /* Photos.framework */; };
 		C6E2A38628590E8C008D0B23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E2A38528590E8C008D0B23 /* AppDelegate.swift */; };
 		C6E2A38828590E8C008D0B23 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E2A38728590E8C008D0B23 /* SceneDelegate.swift */; };
 		C6E2A38A28590E8C008D0B23 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E2A38928590E8C008D0B23 /* ViewController.swift */; };
@@ -21,6 +24,9 @@
 
 /* Begin PBXFileReference section */
 		C62A061F285AA990006552ED /* QuickShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickShareViewController.swift; sourceTree = "<group>"; };
+		C6A63827285D24B900789F04 /* FotoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FotoTableViewCell.swift; sourceTree = "<group>"; };
+		C6A63829285D35E000789F04 /* ShowImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowImageViewController.swift; sourceTree = "<group>"; };
+		C6A6382B285D392500789F04 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		C6E2A38228590E8C008D0B23 /* Where was I?.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Where was I?.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6E2A38528590E8C008D0B23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6E2A38728590E8C008D0B23 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6A6382C285D392500789F04 /* Photos.framework in Frameworks */,
 				C6E2A39B28591080008D0B23 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -46,6 +53,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C6A63826285D247C00789F04 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C6E2A38928590E8C008D0B23 /* ViewController.swift */,
+				C62A061F285AA990006552ED /* QuickShareViewController.swift */,
+				C6A63827285D24B900789F04 /* FotoTableViewCell.swift */,
+				C6A63829285D35E000789F04 /* ShowImageViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		C6E2A37928590E8C008D0B23 = {
 			isa = PBXGroup;
 			children = (
@@ -66,11 +84,10 @@
 		C6E2A38428590E8C008D0B23 /* Where was I? */ = {
 			isa = PBXGroup;
 			children = (
+				C6A63826285D247C00789F04 /* View */,
 				C6E2A3A0285938E2008D0B23 /* Model */,
 				C6E2A38528590E8C008D0B23 /* AppDelegate.swift */,
 				C6E2A38728590E8C008D0B23 /* SceneDelegate.swift */,
-				C6E2A38928590E8C008D0B23 /* ViewController.swift */,
-				C62A061F285AA990006552ED /* QuickShareViewController.swift */,
 				C6E2A38B28590E8C008D0B23 /* Main.storyboard */,
 				C6E2A38E28590E8F008D0B23 /* Assets.xcassets */,
 				C6E2A39028590E8F008D0B23 /* LaunchScreen.storyboard */,
@@ -82,6 +99,7 @@
 		C6E2A39928591080008D0B23 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C6A6382B285D392500789F04 /* Photos.framework */,
 				C6E2A39A28591080008D0B23 /* MapKit.framework */,
 			);
 			name = Frameworks;
@@ -170,8 +188,10 @@
 				C62A0620285AA990006552ED /* QuickShareViewController.swift in Sources */,
 				C6E2A38A28590E8C008D0B23 /* ViewController.swift in Sources */,
 				C6E2A39D28593761008D0B23 /* DataModel.swift in Sources */,
+				C6A6382A285D35E000789F04 /* ShowImageViewController.swift in Sources */,
 				C6E2A38628590E8C008D0B23 /* AppDelegate.swift in Sources */,
 				C6E2A39F285938CF008D0B23 /* DataStore.swift in Sources */,
+				C6A63828285D24B900789F04 /* FotoTableViewCell.swift in Sources */,
 				C6E2A38828590E8C008D0B23 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

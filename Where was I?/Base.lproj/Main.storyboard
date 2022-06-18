@@ -49,17 +49,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="B5J-lh-aTH">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="160" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="B5J-lh-aTH">
                                 <rect key="frame" x="0.0" y="88" width="428" height="755"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableViewCell" id="cJw-bz-EBz">
-                                        <rect key="frame" x="0.0" y="44.666666030883789" width="428" height="43.666667938232422"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="FotoTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableViewCell" id="cJw-bz-EBz" customClass="FotoTableViewCell" customModule="Where_was_I_" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.666666030883789" width="428" height="160"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cJw-bz-EBz" id="KzM-zr-xzw">
-                                            <rect key="frame" x="0.0" y="0.0" width="428" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="428" height="160"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JQd-n0-y4g">
+                                                    <rect key="frame" x="0.0" y="0.0" width="428" height="160"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="JQd-n0-y4g" secondAttribute="bottom" id="a1A-YR-C70"/>
+                                                <constraint firstItem="JQd-n0-y4g" firstAttribute="leading" secondItem="KzM-zr-xzw" secondAttribute="leading" id="dqA-fK-n1R"/>
+                                                <constraint firstAttribute="trailing" secondItem="JQd-n0-y4g" secondAttribute="trailing" id="h78-dN-IXb"/>
+                                                <constraint firstItem="JQd-n0-y4g" firstAttribute="top" secondItem="KzM-zr-xzw" secondAttribute="top" id="raM-MP-dBa"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="fotoImageView" destination="JQd-n0-y4g" id="abB-1D-OEu"/>
+                                            <segue destination="TRU-9E-ywr" kind="show" identifier="showFullImageSegue" id="s0j-xd-nUO"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -82,6 +97,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hPM-xR-vSF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="209" y="-443"/>
+        </scene>
+        <!--Show Image View Controller-->
+        <scene sceneID="vhO-K8-n7K">
+            <objects>
+                <viewController id="TRU-9E-ywr" customClass="ShowImageViewController" customModule="Where_was_I_" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="L0s-JR-Mnc">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="HMX-ES-qpv"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="j0X-JU-YJx"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M2a-Uc-dOX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="956" y="-443"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="h3x-wS-SZ7">
@@ -137,17 +168,11 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="yes" keyboardType="numbersAndPunctuation" textContentType="flight-number"/>
-                                <connections>
-                                    <action selector="latitudeTextBox:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="HMV-Kv-TWE"/>
-                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ot0-4H-cmG">
                                 <rect key="frame" x="193" y="113" width="165" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="longitudeTextBox:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="bG2-5y-ehA"/>
-                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A81-4O-Hew">
                                 <rect key="frame" x="378" y="115" width="43" height="30"/>

@@ -79,11 +79,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         getAnotation()
     }
     
-    
-    @IBAction func longitudeTextBox(_ sender: Any) {
-    }
-    @IBAction func latitudeTextBox(_ sender: Any) {
-    }
     func getAnotation() {
         guard let oldCoords = DataStore().getLastLocation() else { return }
         let anotation = MKPointAnnotation()
