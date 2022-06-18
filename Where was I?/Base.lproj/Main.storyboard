@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -105,14 +106,100 @@
                     <view key="view" contentMode="scaleToFill" id="L0s-JR-Mnc">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="X7Z-oq-vbw">
+                                <rect key="frame" x="20" y="488" width="388" height="90"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ooc-iL-jyx">
+                                        <rect key="frame" x="0.0" y="0.0" width="113.33333333333333" height="90"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title=" ">
+                                            <backgroundConfiguration key="background" image="fb" imageContentMode="scaleAspectFit"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="shareButtonClicked:" destination="TRU-9E-ywr" eventType="touchUpInside" id="u5g-Qd-Cv0"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G3A-p5-wKc">
+                                        <rect key="frame" x="121.33333333333333" y="0.0" width="129.33333333333337" height="90"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title=" ">
+                                            <backgroundConfiguration key="background" image="fb-mess" imageContentMode="scaleAspectFit"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="shareButtonClicked:" destination="TRU-9E-ywr" eventType="touchUpInside" id="Qkp-Su-11W"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Dh-KT-GlQ">
+                                        <rect key="frame" x="258.66666666666669" y="0.0" width="129.33333333333331" height="90"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title=" ">
+                                            <backgroundConfiguration key="background" image="insta" imageContentMode="scaleAspectFit"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="shareButtonClicked:" destination="TRU-9E-ywr" eventType="touchUpInside" id="EQh-C9-jiN"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="GmZ-FI-JL5"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RhT-b0-Nce">
+                                <rect key="frame" x="20" y="598" width="388" height="90"/>
+                                <subviews>
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oaO-Ye-hce">
+                                        <rect key="frame" x="0.0" y="0.0" width="129.33333333333334" height="90"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title=" ">
+                                            <backgroundConfiguration key="background" image="pin" imageContentMode="scaleAspectFit"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="shareButtonClicked:" destination="TRU-9E-ywr" eventType="touchUpInside" id="VvR-fc-GwH"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uKU-4V-wji">
+                                        <rect key="frame" x="129.33333333333331" y="0.0" width="129.33333333333331" height="90"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title=" ">
+                                            <backgroundConfiguration key="background" image="twitter" imageContentMode="scaleAspectFit"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="shareButtonClicked:" destination="TRU-9E-ywr" eventType="touchUpInside" id="tdu-Yk-zT3"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="5" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pbp-Wn-8xP">
+                                        <rect key="frame" x="258.66666666666669" y="0.0" width="129.33333333333331" height="90"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title=" ">
+                                            <backgroundConfiguration key="background" image="whats" imageContentMode="scaleAspectFit"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="shareButtonClicked:" destination="TRU-9E-ywr" eventType="touchUpInside" id="mpW-xd-Lgd"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="cK1-Lb-05B"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="HMX-ES-qpv"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="RhT-b0-Nce" firstAttribute="leading" secondItem="HMX-ES-qpv" secondAttribute="leading" constant="20" id="6QS-ya-ahp"/>
+                            <constraint firstItem="HMX-ES-qpv" firstAttribute="trailing" secondItem="X7Z-oq-vbw" secondAttribute="trailing" constant="20" id="Dkd-d0-bt5"/>
+                            <constraint firstItem="HMX-ES-qpv" firstAttribute="trailing" secondItem="RhT-b0-Nce" secondAttribute="trailing" constant="20" id="Ez3-5r-1v9"/>
+                            <constraint firstItem="X7Z-oq-vbw" firstAttribute="top" secondItem="HMX-ES-qpv" secondAttribute="top" constant="400" id="cpw-r4-tDg"/>
+                            <constraint firstItem="RhT-b0-Nce" firstAttribute="top" secondItem="X7Z-oq-vbw" secondAttribute="bottom" constant="20" id="drI-bI-eL4"/>
+                            <constraint firstItem="X7Z-oq-vbw" firstAttribute="leading" secondItem="HMX-ES-qpv" secondAttribute="leading" constant="20" id="h3t-xi-pDY"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="j0X-JU-YJx"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M2a-Uc-dOX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="956" y="-443"/>
+            <point key="canvasLocation" x="954.6728971962616" y="-443.19654427645793"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="h3x-wS-SZ7">
@@ -217,9 +304,15 @@
         </scene>
     </scenes>
     <resources>
+        <image name="fb" width="325" height="325"/>
+        <image name="fb-mess" width="800" height="800"/>
+        <image name="insta" width="449" height="449"/>
         <image name="paperplane.fill" catalog="system" width="128" height="118"/>
         <image name="pencil.tip" catalog="system" width="99" height="128"/>
+        <image name="pin" width="300" height="300"/>
         <image name="square.and.arrow.up.fill" catalog="system" width="115" height="128"/>
+        <image name="twitter" width="512" height="512"/>
+        <image name="whats" width="300" height="300"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

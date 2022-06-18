@@ -36,5 +36,23 @@ class ShowImageViewController: UIViewController {
         view.addSubview(imageView)
     }
     
-
+    @IBAction func shareButtonClicked(_ sender: UIButton) {
+        switch sender.tag {
+        case 0:
+            print("fb")
+        case 1:
+            print("fb_m")
+        case 2:
+            print("insta")
+        case 3:
+            print("pin")
+        case 4:
+            print("tw")
+        case 5:
+            print("wh")
+        default:
+            return
+        }
+    }
+    
 }
