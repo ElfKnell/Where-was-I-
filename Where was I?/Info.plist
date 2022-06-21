@@ -8,6 +8,12 @@
 	<string>You permission helps us pinpoint your last location</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
+		<key>LSApplicationQueriesSchemes</key>
+		<array>
+			<string>instagram-stories</string>
+			<string>facebook-stories</string>
+			<string>whatsapp</string>
+		</array>
 		<key>UIApplicationSupportsMultipleScenes</key>
 		<false/>
 		<key>UISceneConfigurations</key>

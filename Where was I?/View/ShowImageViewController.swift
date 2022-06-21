@@ -39,20 +39,73 @@ class ShowImageViewController: UIViewController {
     @IBAction func shareButtonClicked(_ sender: UIButton) {
         switch sender.tag {
         case 0:
-            print("fb")
+            shareToFacebook(urlScheme: "facebook-stories://share", appId: "no")
         case 1:
             print("fb_m")
         case 2:
-            print("insta")
+            shareToInstagramStories(urlScheme: "instagram-stories://share")
         case 3:
             print("pin")
         case 4:
             print("tw")
         case 5:
-            print("wh")
+            shareWhatsApp(urlScheme: "whatsapp://app")
         default:
             return
         }
     }
+
+    func shareWhatsApp(urlScheme: String) {
+        
+        guard let valideUrl = appIsInstall(urlScheme: urlScheme, name: "WhatsApp") else {
+            return
+        }
+        let documentInteractionController :UIDocumentInteractionController?
+        guard let imageDate = imageView.image?.pngData() else {
+            return
+        }
+        
+        let tempFile = URL(fileURLWithPath: NSHomeDirectory()).appendingPathComponent("Documents/whatsAppTmp.wai")
+        try? imageDate.write(to: tempFile, options: .atomicWrite)
+        documentInteractionController = UIDocumentInteractionController(url: tempFile)
+               documentInteractionController?.uti = "net.whatsapp.image"
+               documentInteractionController?.presentOpenInMenu(from: .zero, in: view, animated: true)
+        
+        UIApplication.shared.open(valideUrl, options: [:], completionHandler: nil)
+    }
     
+    func shareToInstagramStories(urlScheme: String) {
+        guard let valideUrl = appIsInstall(urlScheme: urlScheme, name: "Instagram") else {
+            return
+        }
+        guard let imageData: Data = imageView.image?.pngData() else { return }
+           let items = [["com.instagram.sharedSticker.backgroundImage": imageData]]
+           let pasteboardOptions = [UIPasteboard.OptionsKey.expirationDate: Date().addingTimeInterval(60*5)]
+           UIPasteboard.general.setItems(items, options: pasteboardOptions)
+           UIApplication.shared.open(valideUrl, options: [:], completionHandler: nil)
+       }
+    
+    func shareToFacebook(urlScheme: String, appId: String) {
+        guard let valideUrl = appIsInstall(urlScheme: urlScheme, name: "Facebook") else {
+            return
+        }
+        guard let imageData: Data = imageView.image?.pngData() else { return }
+           let items = [["com.facebook.sharedSticker.backgroundImage": imageData,
+                         "com.facebook.sharedSticker.appID": appId]]
+           let pasteboardOptions = [UIPasteboard.OptionsKey.expirationDate: Date().addingTimeInterval(60*5)]
+           UIPasteboard.general.setItems(items, options: pasteboardOptions)
+           UIApplication.shared.open(valideUrl, options: [:], completionHandler: nil)
+       }
+    
+    func appIsInstall(urlScheme: String, name: String) -> URL? {
+        guard
+           let corectUrl = URL(string: urlScheme),
+           case let application = UIApplication.shared,
+            application.canOpenURL(corectUrl)
+        else {
+            print("Whats need " + name)
+            return nil
+        }
+        return corectUrl
+    }
 }
