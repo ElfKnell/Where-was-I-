@@ -41,13 +41,13 @@ class ShowImageViewController: UIViewController {
         case 0:
             shareToFacebook(urlScheme: "facebook-stories://share", appId: "no")
         case 1:
-            print("fb_m")
+            shareToMessengerFacebook(urlScheme: "fb-messenger://share")
         case 2:
             shareToInstagramStories(urlScheme: "instagram-stories://share")
         case 3:
             print("pin")
         case 4:
-            print("tw")
+            shareToTwitter(urlScheme: "twitterrific://current/")
         case 5:
             shareWhatsApp(urlScheme: "whatsapp://app")
         default:
@@ -79,23 +79,47 @@ class ShowImageViewController: UIViewController {
             return
         }
         guard let imageData: Data = imageView.image?.pngData() else { return }
-           let items = [["com.instagram.sharedSticker.backgroundImage": imageData]]
-           let pasteboardOptions = [UIPasteboard.OptionsKey.expirationDate: Date().addingTimeInterval(60*5)]
-           UIPasteboard.general.setItems(items, options: pasteboardOptions)
-           UIApplication.shared.open(valideUrl, options: [:], completionHandler: nil)
-       }
+        let items = [["com.instagram.sharedSticker.backgroundImage": imageData]]
+        let pasteboardOptions = [UIPasteboard.OptionsKey.expirationDate: Date().addingTimeInterval(60*5)]
+        UIPasteboard.general.setItems(items, options: pasteboardOptions)
+        UIApplication.shared.open(valideUrl, options: [:], completionHandler: nil)
+    }
+    
+    func shareToTwitter(urlScheme: String) {
+        guard let valideUrl = appIsInstall(urlScheme: urlScheme, name: "Twitter") else {
+            return
+        }
+        guard let imageData: Data = imageView.image?.pngData() else {
+            return
+        }
+        let items = [["com.twitter.sharedSticker.backgroundImage": imageData]]
+        let pasteboardOptions = [UIPasteboard.OptionsKey.expirationDate: Date().addingTimeInterval(60*5)]
+        UIPasteboard.general.setItems(items, options: pasteboardOptions)
+        UIApplication.shared.open(valideUrl, options: [:], completionHandler: nil)
+    }
     
     func shareToFacebook(urlScheme: String, appId: String) {
         guard let valideUrl = appIsInstall(urlScheme: urlScheme, name: "Facebook") else {
             return
         }
         guard let imageData: Data = imageView.image?.pngData() else { return }
-           let items = [["com.facebook.sharedSticker.backgroundImage": imageData,
+        let items = [["com.facebook.sharedSticker.backgroundImage": imageData,
                          "com.facebook.sharedSticker.appID": appId]]
-           let pasteboardOptions = [UIPasteboard.OptionsKey.expirationDate: Date().addingTimeInterval(60*5)]
-           UIPasteboard.general.setItems(items, options: pasteboardOptions)
-           UIApplication.shared.open(valideUrl, options: [:], completionHandler: nil)
-       }
+        let pasteboardOptions = [UIPasteboard.OptionsKey.expirationDate: Date().addingTimeInterval(60*5)]
+        UIPasteboard.general.setItems(items, options: pasteboardOptions)
+        UIApplication.shared.open(valideUrl, options: [:], completionHandler: nil)
+    }
+    
+    func shareToMessengerFacebook(urlScheme: String) {
+        guard let valideUrl = appIsInstall(urlScheme: urlScheme, name: "Messenger") else {
+            return
+        }
+        guard let imageData: Data = imageView.image?.pngData() else { return }
+        let items = [["com.fb-messenger.sharedSticker.backgroundImage": imageData]]
+        let pasteboardOptions = [UIPasteboard.OptionsKey.expirationDate: Date().addingTimeInterval(60*5)]
+        UIPasteboard.general.setItems(items, options: pasteboardOptions)
+        UIApplication.shared.open(valideUrl, options: [:], completionHandler: nil)
+    }
     
     func appIsInstall(urlScheme: String, name: String) -> URL? {
         guard
