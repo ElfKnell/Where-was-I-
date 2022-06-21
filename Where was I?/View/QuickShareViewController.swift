@@ -20,6 +20,13 @@ class QuickShareViewController: UIViewController, UITableViewDataSource, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         let collection = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .smartAlbumUserLibrary, options: nil)
         
         if collection.firstObject != nil {
@@ -31,9 +38,7 @@ class QuickShareViewController: UIViewController, UITableViewDataSource, UITable
         } else {
             print("nothing found")
         }
-        
-        tableView.dataSource = self
-        tableView.delegate = self
+        tableView.reloadData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
